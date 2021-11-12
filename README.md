@@ -22,8 +22,8 @@ I currently don't have that much time to spend developing andOTP, so any contrib
 Don't worry, I will still continue to develop andOTP it will just slow down from the incredible speed I had going in the beginning.
 
 ## Special feature of this forked version:
-* Implemented Samsung Accessory Protocol (SAP) to sync with a Tizen (3.0, 4.0, 5.5) based Galaxy Watch® (with tizOTP application on the watch)
-* Distributed via Samsung Galaxy App store to serve their ecosystem
+* Provides bluetooth update for Wear OS watch (with weaOTP application on the watch)
+* Distributed for the phone in the bundle of weaOTP (watch application) via the play store 
 
 ## Features:
 
@@ -83,11 +83,11 @@ Check out [this](https://github.com/andOTP/andOTP/wiki/Migration) wiki page to l
 
 ## Downloads:
 
-Download andOTP via Samsung Galaxy Store for this forked version with Galaxy Watch® support.  
+Download weaOTP via Google Play Store to get this forked version with WearOS watch support.  
 
-[<img height=80 alt="Available on Galaxy Store" src="https://raw.githubusercontent.com/vascomax/andOTP/GalaxyVersionMaster/assets/badges/GalaxyStore_English.png" />](https://galaxy.store/andotp)  
+[<img height=80 alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" />](https://play.google.com/store/apps/details?id=com.andotp.weaotp)  
 
-Standard version below (no support sync with Galaxy Watch®):  
+Standard version below (no support sync with WearOS watches):  
 [<img height=80 alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" />](https://play.google.com/store/apps/details?id=org.shadowice.flocke.andotp)
 [<img height=80 alt="Get it on F-Droid" src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" />](https://f-droid.org/packages/org.shadowice.flocke.andotp/)
 [<img height=80 alt="Get it on GitHub" src="https://raw.githubusercontent.com/flocke/andOTP/master/assets/badges/get-it-on-github.png" />](https://github.com/andOTP/andOTP/releases)
@@ -162,6 +162,7 @@ Let's be realistic here... no one does it anyway.
 
 ## License:
 ```
+Copyright (C) 2021 DaneChainS
 Copyright (C) 2021 Vascomax
 Copyright (C) 2017-2020 Jakob Nixdorf <andotp@shadowice.org>
 Copyright (C) 2015 Bruno Bierbaumer

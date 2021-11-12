@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--suppress AndroidElementNotAllowed -->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        android:key="@string/settings_key_cat_security"
+        android:title="@string/settings_category_title_security">
+
+        <org.shadowice.flocke.andotp.Preferences.NumberPickerPreference
+            android:key="@string/settings_key_tap_to_reveal_timeout"
+            android:title="@string/settings_title_tap_to_reveal_timeout"
+            android:dialogMessage="@string/settings_desc_tap_to_reveal_timeout"
+            android:defaultValue="@integer/settings_default_tap_to_reveal_timeout"
+            app:minValue="@integer/settings_min_tap_to_reveal_timeout"
+            app:maxValue="@integer/settings_max_tap_to_reveal_timeout"
+            app:wrapSelectorWheel="false" />
+
+        <org.shadowice.flocke.andotp.Preferences.CredentialsPreference
+            android:key="@string/settings_key_auth"
+            android:title="@string/settings_title_auth" />
+
+        <ListPreference
+            android:key="@string/settings_key_encryption"
+            android:title="@string/settings_title_encryption"
+            android:summary="%s"
+            android:entries="@array/settings_entries_encryption"
+            android:entryValues="@array/settings_values_encryption"
+            android:defaultValue="@string/settings_default_encryption" />
+
+        <MultiSelectListPreference
+            android:key="@string/settings_key_panic"
+            android:title="@string/settings_title_panic"
+            android:summary="@string/settings_desc_panic"
+            android:entries="@array/settings_entries_panic"
+            android:entryValues="@array/settings_values_panic"
+            android:defaultValue="@array/settings_empty_array" />
+
+        <CheckBoxPreference
+            android:key="@string/settings_key_relock_screen_off"
+            android:title="@string/settings_title_relock_screen_off"
+            android:summary="@string/settings_desc_relock_screen_off"
+            android:defaultValue="true" />
+
+        <CheckBoxPreference
+            android:key="@string/settings_key_relock_background"
+            android:title="@string/settings_title_relock_background"
+            android:summary="@string/settings_desc_relock_background"
+            android:defaultValue="false" />
+
+        <CheckBoxPreference
+            android:key="@string/settings_key_auth_inactivity"
+            android:title="@string/settings_title_auth_inactivity"
+            android:summary="@string/settings_desc_auth_inactivity"
+            android:defaultValue="false" />
+
+        <org.shadowice.flocke.andotp.Preferences.NumberPickerPreference
+            android:key="@string/settings_key_auth_inactivity_delay"
+            android:title="@string/settings_title_auth_inactivity_delay"
+            android:dialogMessage="@string/settings_desc_auth_inactivity_delay"
+            android:defaultValue="@integer/settings_default_auth_inactivity_delay"
+            android:dependency="@string/settings_key_auth_inactivity"
+            app:minValue="@integer/settings_auth_min_inactivity_delay"
+            app:maxValue="@integer/settings_auth_max_inactivity_delay"
+            app:wrapSelectorWheel="false" />
+
+        <CheckBoxPreference
+            android:key="@string/settings_key_block_accessibility"
+            android:title="@string/settings_title_block_accessibility"
+            android:summary="@string/settings_desc_block_accessibility"
+            android:defaultValue="false" />
+
+        <CheckBoxPreference
+            android:key="@string/settings_key_block_autofill"
+            android:title="@string/settings_title_block_autofill"
+            android:summary="@string/settings_desc_block_autofill"
+            android:defaultValue="false" />
+
+        <CheckBoxPreference
+            android:key="@string/settings_key_auto_unlock_after_autofill"
+            android:title="@string/settings_title_auto_unlock_after_autofill"
+            android:summary="@string/settings_desc_auto_unlock_after_autofill"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/settings_category_title_ui"
+        android:key="@string/settings_key_cat_ui">
+
+        <ListPreference
+            android:key="@string/settings_key_lang"
+            android:title="@string/settings_title_lang"
+            android:summary="%s"
+            android:entries="@array/settings_entries_lang"
+            android:entryValues="@array/settings_values_lang"
+            android:defaultValue="@string/settings_default_lang" />
+
+        <ListPreference
+            android:key="@string/settings_key_theme_mode"
+            android:title="@string/settings_title_theme_mode"
+            android:summary="%s"
+            android:entries="@array/settings_entries_theme_mode"
+            android:entryValues="@array/settings_values_theme_mode"
+            android:defaultValue="@string/settings_default_theme_mode" />
+
+        <CheckBoxPreference
+            android:key="@string/settings_key_theme_black_auto"
+            android:title="@string/settings_title_theme_black_auto"
+            android:summary="@string/settings_desc_theme_black_auto"
+            android:defaultValue="false" />
+
+        <ListPreference
+            android:key="@string/settings_key_theme"
+            android:title="@string/settings_title_theme"
+            android:summary="%s"
+            android:entries="@array/settings_entries_theme"
+            android:entryValues="@array/settings_values_theme"
+            android:defaultValue="@string/settings_default_theme" />
+
+        <ListPreference
+            android:key="@string/settings_key_card_layout"
+            android:title="@string/settings_title_card_layout"
+            android:summary="%s"
+            android:entries="@array/settings_entries_card_layout"
+            android:entryValues="@array/settings_values_card_layout"
+            android:defaultValue="@string/settings_default_card_layout" />
+
+        <ListPreference
+            android:key="@string/settings_key_tap_single"
+            android:title="@string/settings_title_tap_single"
+            android:summary="%s"
+            android:entries="@array/settings_entries_tap"
+            android:entryValues="@array/settings_values_tap"
+            android:defaultValue="@string/settings_default_tap_single" />
+
+        <ListPreference
+            android:key="@string/settings_key_tap_double"
+            android:title="@string/settings_title_tap_double"
+            android:summary="%s"
+            android:entries="@array/settings_entries_tap"
+            android:entryValues="@array/settings_values_tap"
+            android:defaultValue="@string/settings_default_tap_double" />
+
+        <CheckBoxPreference
+            android:key="@string/settings_key_show_prev_token"
+            android:title="@string/settings_title_show_prev_token"
+            android:summary="@string/settings_desc_show_prev_token"
+            android:defaultValue="false" />
+
+        <org.shadowice.flocke.andotp.Preferences.NumberPickerPreference
+            android:key="@string/settings_key_label_size"
+            android:title="@string/settings_title_label_size"
+            android:defaultValue="@integer/settings_default_label_size"
+            app:maxValue="@integer/settings_max_label_size"
+            app:minValue="@integer/settings_min_label_size"
+            app:wrapSelectorWheel="false" />
+
+        <ListPreference
+            android:key="@string/settings_key_label_display"
+            android:title="@string/settings_title_label_display"
+            android:summary="%s"
+            android:entries="@array/settings_entries_label_display"
+            android:entryValues="@array/settings_values_label_display"
+            android:defaultValue="@string/settings_default_label_display" />
+
+        <ListPreference
+            android:key="@string/settings_key_thumbnail_size"
+            android:title="@string/settings_title_thumbnail_size_ask"
+            android:summary="%s"
+            android:entries="@array/settings_entries_thumbnail_size"
+            android:entryValues="@array/settings_values_thumbnail_size"
+            android:defaultValue="@string/settings_default_thumbnail_size" />
+
+        <ListPreference
+            android:key="@string/settings_key_split_group_size"
+            android:title="@string/settings_title_split_group_size"
+            android:summary="%s"
+            android:entries="@array/settings_entries_split_group_size"
+            android:entryValues="@array/settings_values_split_group_size"
+            android:defaultValue="@string/settings_default_split_group_size" />
+
+        <ListPreference
+            android:key="@string/settings_key_tag_functionality"
+            android:title="@string/settings_title_tag_functionality"
+            android:summary="%s"
+            android:entries="@array/settings_entries_tag_functionality"
+            android:entryValues="@array/settings_values_tag_functionality"
+            android:defaultValue="@string/settings_default_tag_functionality" />
+
+        <CheckBoxPreference
+            android:key="@string/settings_key_minimize_on_copy"
+            android:title="@string/settings_title_minimize_on_copy"
+            android:summary="@string/settings_desc_minimize_on_copy"
+            android:defaultValue="false" />
+
+        <MultiSelectListPreference
+            android:key="@string/settings_key_search_includes"
+            android:title="@string/settings_title_search_includes"
+            android:summary="@string/settings_desc_search_includes"
+            android:entries="@array/settings_entries_search_includes"
+            android:entryValues="@array/settings_values_search_includes"
+            android:defaultValue="@array/settings_defaults_search_includes" />
+
+        <CheckBoxPreference
+            android:key="@string/settings_key_label_highlight_token"
+            android:title="@string/settings_title_label_highlight_token"
+            android:summary="@string/settings_desc_label_highlight_token"
+            android:defaultValue="true" />
+
+        <CheckBoxPreference
+            android:key="@string/settings_key_hide_global_timeout"
+            android:title="@string/settings_title_hide_global_timeout"
+            android:summary="@string/settings_desc_hide_global_timeout"
+            android:defaultValue="false" />
+
+        <CheckBoxPreference
+            android:key="@string/settings_key_hide_issuer"
+            android:title="@string/settings_title_hide_issuer"
+            android:summary="@string/settings_desc_hide_issuer"
+            android:defaultValue="false" />
+
+        <CheckBoxPreference
+            android:key="@string/settings_key_show_individual_timeouts"
+            android:title="@string/settings_title_show_individual_timeouts"
+            android:summary="@string/settings_desc_show_individual_timeouts"
+            android:defaultValue="false" />
+
+        <CheckBoxPreference
+            android:key="@string/settings_key_focus_search_on_start"
+            android:title="@string/settings_title_focus_search_on_start"
+            android:summary="@string/settings_desc_focus_search_on_start"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/settings_category_title_backup">
+
+	<CheckBoxPreference
+            android:key="@string/settings_key_enable_android_backup_service"
+            android:title="@string/settings_title_enable_android_backup_service"
+            android:summary="@string/settings_desc_enable_android_backup_service"
+            android:defaultValue="true" />
+
+        <CheckBoxPreference
+            android:key="@string/settings_key_backup_append_date_time"
+            android:title="@string/settings_title_backup_append_date"
+            android:summary="@string/settings_desc_backup_append_date"
+            android:defaultValue="true" />
+
+        <CheckBoxPreference
+            android:key="@string/settings_key_backup_ask"
+            android:title="@string/settings_title_backup_ask"
+            android:summary="@string/settings_desc_backup_ask"
+            android:disableDependentsState="true"
+            android:defaultValue="true" />
+
+        <Preference
+            android:key="@string/settings_key_backup_location"
+            android:title="@string/settings_title_backup_location"
+            android:summary="@string/settings_desc_backup_location" />
+
+        <org.shadowice.flocke.andotp.Preferences.PasswordEncryptedPreference
+            android:key="@string/settings_key_backup_password_enc"
+            android:title="@string/settings_title_backup_password"
+            android:summary="@string/settings_desc_backup_password" />
+
+        <ListPreference
+            android:key="@string/settings_key_auto_backup_password_enc"
+            android:title="@string/settings_title_auto_backup_password_enc"
+            android:summary="@string/settings_desc_auto_backup_password_enc"
+            android:entries="@array/settings_entries_auto_backup_password_enc"
+            android:entryValues="@array/settings_values_auto_backup_password_enc"
+            android:defaultValue="@string/settings_default_auto_backup_password_enc" />
+
+        <MultiSelectListPreference
+            android:key="@string/settings_key_backup_broadcasts"
+            android:title="@string/settings_title_backup_broadcasts"
+            android:summary="@string/settings_desc_backup_broadcasts"
+            android:entries="@array/settings_entries_backup_broadcasts"
+            android:entryValues="@array/settings_values_backup_broadcasts"
+            android:defaultValue="@array/settings_empty_array" />
+
+        <org.openintents.openpgp.util.OpenPgpAppPreference
+            android:key="@string/settings_key_openpgp_provider"
+            android:title="@string/settings_title_openpgp_provider" />
+
+        <EditTextPreference
+            android:key="@string/settings_key_openpgp_key_encrypt"
+            android:title="@string/settings_title_openpgp_key_encrypt"
+            android:summary="@string/settings_desc_openpgp_key_encrypt"
+            android:enabled="false" />
+
+        <org.openintents.openpgp.util.OpenPgpKeyPreference
+            android:key="@string/settings_key_openpgp_key_sign"
+            android:title="@string/settings_title_openpgp_key_sign" />
+
+        <CheckBoxPreference
+            android:key="@string/settings_key_openpgp_verify"
+            android:title="@string/settings_title_openpgp_verify"
+            android:summary="@string/settings_desc_openpgp_verify"
+            android:defaultValue="false" />
+
+        <CheckBoxPreference
+            android:key="@string/settings_key_galaxy_wearos_sync"
+            android:title="@string/settings_title_wearos"
+            android:summary="@string/settings_desc_wearos"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

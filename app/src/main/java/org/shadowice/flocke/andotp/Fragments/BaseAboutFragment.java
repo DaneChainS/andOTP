@@ -26,11 +26,11 @@ import org.shadowice.flocke.andotp.Utilities.Settings;
 import org.shadowice.flocke.andotp.Utilities.Tools;
 
 public class BaseAboutFragment extends Fragment {
-    private static final String GITHUB_URI = "https://github.com/Vascomax/andOTP";
+    private static final String GITHUB_URI = "https://github.com/DaneChainS/andOTP";
     private static final String GITHUB_URI_ORIG = "https://github.com/andOTP/andOTP";
-    private static final String SOURCE_URI = GITHUB_URI + "/tree/GalaxyVersionMaster";
-    private static final String CHANGELOG_URI = GITHUB_URI + "/blob/GalaxyVersionMaster/CHANGELOG.md";
-    private static final String MIT_URI = GITHUB_URI + "/blob/GalaxyVersionMaster/LICENSE.txt";
+    private static final String SOURCE_URI = GITHUB_URI + "/tree/WearOSmaster";
+    private static final String CHANGELOG_URI = GITHUB_URI + "/blob/WearOSmaster/CHANGELOG.md";
+    private static final String MIT_URI = GITHUB_URI + "/blob/WearOSmaster/LICENSE.txt";
     private static final String FAQ_URI = GITHUB_URI_ORIG + "/wiki/Frequently-Asked-Questions";
 
     private static final String AUTHOR1_GITHUB = "https://github.com/flocke";
@@ -41,7 +41,7 @@ public class BaseAboutFragment extends Fragment {
 
     private static final String CONTRIBUTORS_URI = GITHUB_URI + "/graphs/contributors";
 
-    private static final String SUPPORT_URI = GITHUB_URI + "/blob/GalaxyVersionMaster/README.md#contribute";
+    private static final String SUPPORT_URI = GITHUB_URI + "/blob/WearOSmaster/README.md#contribute";
 
     private Settings settings;
 

@@ -5,10 +5,10 @@ android {
     buildToolsVersion '31.0.0'
 
     defaultConfig {
-        applicationId "org.shadowice.flocke.tizandotp"
+        applicationId "com.andotp.weaotp"
         minSdkVersion 22
         targetSdkVersion 31
-        versionCode 40
+        versionCode 16
         versionName "0.9.0.1C"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -47,6 +47,10 @@ android {
             dimension 'market'
             versionNameSuffix '-galaxy'
         }
+        weaotp {
+            dimension 'market'
+            versionNameSuffix '-weaotp'
+        }
     }
     compileOptions {
         // Flag to enable support for the new language APIs
@@ -59,8 +63,6 @@ android {
 }
 
 dependencies {
-    implementation files('libs/accessory-v2.6.1.jar')
-    implementation files('libs/sdk-v1.0.0.jar')
     def lifecycle_version = "2.5.0"
 
     implementation 'androidx.media:media:1.6.0'

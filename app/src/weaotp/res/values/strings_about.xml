@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">(W)andOTP</string>
+    <string name="about_description_addition">\ + WearOS </string>
+
+    <string name="about_name_author0" translatable="false">DaneChainS</string>
+    <string name="about_label_galaxy_developer">weaOTP Mod Developer</string>
+<!-- Tizen Additional Strings -->
+    <string name="tizen_message_upper">Created random password for data exchange with weaOTP on WearOS watch: \n\n </string>
+    <string name="tizen_message_lower1">You have to enter it on the watch during weaOTP setup.\nIt will be stored here as default andOTP \ </string>
+    <string name="tizen_message_lower2">\nYou can change it in the \ </string>
+    <string name="tizen_message_lower3">\nDo you want to activate bluetooth updates to weaOTP? </string>
+    <string name="button_tizen">No</string>
+    <string name="button_wearos">Yes</string>
+    <string name="settings_title_wearos">Sync to WearOS watch</string>
+    <string name="settings_desc_wearos">Provide additional encrypted 1-way bluetooth updates to WearOS watch (e.g. GW4). Effective only after app restart.</string>
+
+    <!-- Added for Galaxy WearOs mod (should go in settings.xml) -->
+    <string name="settings_key_galaxy_wearos_sync" translatable="false">pref_galaxy_wearos_sync</string>
+
+</resources>
