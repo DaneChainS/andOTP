@@ -3,7 +3,7 @@
 #### v0.9.0.1
 
  * Customize fork of fork of andOTP for weaOTP bluetooth (added new flavor "weaotp")
- * Revert version# with original andOTP repo.
+ * Revert version# to be in sync with original andOTP repo.
  * Remove Samsung SDKs from the original fork (This fork will be for WearOS only)
 
 #### v0.9.0.1B
