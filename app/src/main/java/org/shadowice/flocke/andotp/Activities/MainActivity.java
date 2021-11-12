@@ -378,7 +378,7 @@ public class MainActivity extends BaseActivity
             focusSearchMenu();
 
         //Galaxy WearOS Bluetooth
-        if (BuildConfig.FLAVOR.equals("galaxy")) {
+        if (BuildConfig.FLAVOR.equals("weaotp")) {
             if (settings.getWearOsBluetooth()) {
                 BC.onCreate(getApplicationContext());
                 BC.onStart(getApplicationContext());
@@ -468,7 +468,7 @@ public class MainActivity extends BaseActivity
         startUpdater();
 
         //Galaxy WearOS Bluetooth
-        if (BuildConfig.FLAVOR.equals("galaxy")) {
+        if (BuildConfig.FLAVOR.equals("weaotp")) {
             if (settings.getWearOsBluetooth()) {
                 BC.onResume();
             }

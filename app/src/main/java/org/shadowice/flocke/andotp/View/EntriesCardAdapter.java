@@ -194,8 +194,8 @@ public class EntriesCardAdapter extends RecyclerView.Adapter<EntryViewHolder>
 
     public void saveEntries(boolean auto_backup) {
         DatabaseHelper.saveDatabase(context, entries.getEntries(), encryptionKey);
-        if (BuildConfig.FLAVOR.equals("galaxy")) {
-            doTizenCrypt(); //added for galaxy
+        if (BuildConfig.FLAVOR.equals("weaotp")) {
+            doTizenCrypt(); //added for weaotp
         }
 
         if(auto_backup && BackupHelper.autoBackupType(context) == Constants.BackupType.ENCRYPTED) {
@@ -220,8 +220,8 @@ public class EntriesCardAdapter extends RecyclerView.Adapter<EntryViewHolder>
 
             entries.updateEntries(newEntries, true);
             entriesChanged(RecyclerView.NO_POSITION);
-            if (BuildConfig.FLAVOR.equals("galaxy")) {
-                doTizenCrypt(); //added for galaxy
+            if (BuildConfig.FLAVOR.equals("weaotp")) {
+                doTizenCrypt(); //added for weaotp
             }
         }
     }
