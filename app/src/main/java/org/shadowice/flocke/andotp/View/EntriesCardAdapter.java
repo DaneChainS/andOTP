@@ -22,17 +22,22 @@
 
 package org.shadowice.flocke.andotp.View;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Handler;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Looper;
@@ -863,10 +868,10 @@ public class EntriesCardAdapter extends RecyclerView.Adapter<EntryViewHolder>
                                 //  Toast.makeText(context, "You clicked OK button", Toast.LENGTH_LONG).show();
                                 //set the wearos flag
                                 settings.setWearOsBluetooth(true);
-                                BluetoothChat BC = new BluetoothChat();
-                                BC.onCreate(context);
-                                BC.onStart(context);
-                                BC.onResume();
+                                //BluetoothChat BC = new BluetoothChat();
+                                //BC.onCreate(context);
+                                //BC.onStart(context);
+                                //BC.onResume();
                             }
                         });
 

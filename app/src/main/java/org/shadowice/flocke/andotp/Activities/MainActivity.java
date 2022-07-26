@@ -23,13 +23,16 @@
 
 package org.shadowice.flocke.andotp.Activities;
 
+import android.Manifest;
 import android.animation.ObjectAnimator;
 import android.app.AlertDialog;
 import android.app.KeyguardManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -38,6 +41,8 @@ import android.preference.PreferenceManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -129,6 +134,51 @@ public class MainActivity extends BaseActivity
 
     //Galaxy WearOS Bluetooth
     private final BluetoothChat BC = new BluetoothChat();
+
+    private boolean HasBTPermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) == PackageManager.PERMISSION_GRANTED) {
+            return true;
+        }
+        return false;
+    }
+
+    private void RequestBTPermission() {
+        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.BLUETOOTH_CONNECT) == PackageManager.PERMISSION_DENIED) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.BLUETOOTH_CONNECT}, 2);
+                return;
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case 2: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+                    BC.onCreate(getApplicationContext());
+                    BC.onStart(getApplicationContext());
+                    Toast.makeText(getApplicationContext(), "BT activated", Toast.LENGTH_SHORT).show();
+
+                } else {
+
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                    settings.setWearOsBluetooth(false);
+                }
+                return;
+            }
+
+            // other 'case' lines to check for other
+            // permissions this app might request
+        }
+    }
 
     // QR code scanning
     private void scanQRCode(){
@@ -380,8 +430,15 @@ public class MainActivity extends BaseActivity
         //Galaxy WearOS Bluetooth
         if (BuildConfig.FLAVOR.equals("weaotp")) {
             if (settings.getWearOsBluetooth()) {
-                BC.onCreate(getApplicationContext());
-                BC.onStart(getApplicationContext());
+                if (HasBTPermission()) {
+                    BC.onCreate(getApplicationContext());
+                    BC.onStart(getApplicationContext());
+                }
+                else RequestBTPermission();
+                //if (!HasBTPermission()) {
+                //    settings.setWearOsBluetooth(false);
+                //}
+                //else settings.setWearOsBluetooth(false);
             }
         }
     }
@@ -470,7 +527,11 @@ public class MainActivity extends BaseActivity
         //Galaxy WearOS Bluetooth
         if (BuildConfig.FLAVOR.equals("weaotp")) {
             if (settings.getWearOsBluetooth()) {
-                BC.onResume();
+//                RequestBTPermission();
+                if (HasBTPermission()) {
+                    BC.onResume();
+                }
+                //else settings.setWearOsBluetooth(false);
             }
         }
     }
@@ -519,6 +580,21 @@ public class MainActivity extends BaseActivity
                 key.equals(getString(R.string.settings_key_hide_issuer)) ||
                 key.equals(getString(R.string.settings_key_show_prev_token))) {
             recreateActivity = true;
+        }
+        else if (key.equals(getString(R.string.settings_key_galaxy_wearos_sync))) {
+            if (settings.getWearOsBluetooth()) {
+                if (HasBTPermission()) {
+                    BC.onCreate(getApplicationContext());
+                    BC.onStart(getApplicationContext());
+                    BC.onResume();
+                    Toast.makeText(getApplicationContext(), "BT activated", Toast.LENGTH_SHORT).show();
+                }
+                else RequestBTPermission();
+            }
+            else {
+                Toast.makeText(getApplicationContext(), "BT deactivated", Toast.LENGTH_SHORT).show();
+                BC.onDestroy();
+            }
         }
     }
 
