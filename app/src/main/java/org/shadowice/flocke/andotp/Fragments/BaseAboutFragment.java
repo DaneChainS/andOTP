@@ -29,6 +29,7 @@ public class BaseAboutFragment extends Fragment {
     private static final String GITHUB_URI = "https://github.com/DaneChainS/andOTP";
     private static final String GITHUB_URI_ORIG = "https://github.com/andOTP/andOTP";
     private static final String SOURCE_URI = GITHUB_URI + "/tree/WearOSmaster";
+    private static final String PRIVACY_URI = "https://github.com/DaneChainS/weaOTP-doc/wiki/Privacy-policy";
     private static final String CHANGELOG_URI = GITHUB_URI + "/blob/WearOSmaster/CHANGELOG.md";
     private static final String MIT_URI = GITHUB_URI + "/blob/WearOSmaster/LICENSE.txt";
     private static final String FAQ_URI = GITHUB_URI_ORIG + "/wiki/Frequently-Asked-Questions";
@@ -48,7 +49,7 @@ public class BaseAboutFragment extends Fragment {
     static final int[] imageResources = {
             R.id.aboutImgVersion, R.id.aboutImgLicense, R.id.aboutImgChangelog, R.id.aboutImgSource,
             R.id.aboutImgFaq, R.id.aboutImgAuthor2, R.id.aboutImgAuthorOriginal,
-            R.id.aboutImgContributors, R.id.aboutImgSupport
+            R.id.aboutImgContributors, R.id.aboutImgSupport, R.id.aboutImgPrivacy
     };
 
     static long lastTap = 0;
@@ -115,6 +116,7 @@ public class BaseAboutFragment extends Fragment {
         LinearLayout license = v.findViewById(R.id.about_layout_license);
         LinearLayout changelog = v.findViewById(R.id.about_layout_changelog);
         LinearLayout source = v.findViewById(R.id.about_layout_source);
+        LinearLayout privacy = v.findViewById(R.id.about_layout_privacy);
         LinearLayout faq = v.findViewById(R.id.about_layout_faq);
 
         license.setOnClickListener(new View.OnClickListener() {
@@ -133,6 +135,12 @@ public class BaseAboutFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 openURI(SOURCE_URI);
+            }
+        });
+        privacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openURI(PRIVACY_URI);
             }
         });
         faq.setOnClickListener((View view) -> openURI(FAQ_URI));

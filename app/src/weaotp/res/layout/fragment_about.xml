@@ -210,6 +210,34 @@
 
                 </LinearLayout>
 
+                <!-- privacy -->
+                <LinearLayout
+                    android:id="@+id/about_layout_privacy"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/activity_margin_small"
+                    android:paddingBottom="@dimen/activity_margin_small">
+
+                    <ImageView
+                        android:id="@+id/aboutImgPrivacy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/activity_margin"
+                        android:layout_marginEnd="@dimen/activity_margin_large"
+                        app:srcCompat="@drawable/ic_info_outline_gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/about_label_privacy"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
                 <!-- faq -->
                 <LinearLayout
                     android:id="@+id/about_layout_faq"

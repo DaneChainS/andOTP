@@ -5,6 +5,7 @@
 
     <string name="about_name_author0" translatable="false">DaneChainS</string>
     <string name="about_label_galaxy_developer">weaOTP Mod Developer</string>
+    <string name="about_label_privacy">Privacy Policy</string>
 <!-- Tizen Additional Strings -->
     <string name="tizen_message_upper">Created random password for data exchange with weaOTP on WearOS watch: \n\n </string>
     <string name="tizen_message_lower1">You have to enter it on the watch during weaOTP setup.\nIt will be stored here as default andOTP \ </string>
