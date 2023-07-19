@@ -8,8 +8,8 @@
 
     <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" /> <!-- Needed to support SDK below 24, see build.gradle -->
 
-    <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH" /> <!--removed following because of Xiomi problems:  android:maxSdkVersion="30" /> -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" /> <!-- removed following because of Xiami problems:  android:maxSdkVersion="30" /> -->
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
 
     <application
