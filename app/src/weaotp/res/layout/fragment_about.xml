@@ -214,7 +214,7 @@
                 <LinearLayout
                     android:id="@+id/about_layout_privacy"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="?android:attr/listPreferredItemHeight"
                     android:background="?android:attr/selectableItemBackground"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"

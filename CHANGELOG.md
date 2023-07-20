@@ -1,5 +1,14 @@
 # Changelog
 
+#### v0.9.0.1D
+
+ * Update: SDK 33, Gradle 7.5->8.2.1 Gradle Plugin 7.2.1->8.0.2, appcompat 1.4.2->1.6.1, recyclerview 1.2.1->1.3.0, material: 1.6.1->1.9.0, espresso-core 3.4.0->3.5.1, desugar_jdk_llibs 1.1.5->2.0.3 lifecycle-version 2.5.0->2.6.1
+ * Bugfix: NullReference in material-intro library fixed
+
+#### v0.9.0.1C_26
+
+ * Bugfix: Bluetooth permission for Xiaomi Android 12
+
 #### v0.9.0.1C
 
  * freeze version# to original andOTP upstream, using letters from fork again

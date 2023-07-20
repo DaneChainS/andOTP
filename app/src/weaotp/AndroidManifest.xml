@@ -3,8 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="GoogleAppIndexingWarning"
-    android:installLocation="auto"
-    package="org.shadowice.flocke.andotp">
+    android:installLocation="auto">
+
+    <uses-feature android:name="android.hardware.touchscreen" android:required="true" />
 
     <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" /> <!-- Needed to support SDK below 24, see build.gradle -->
 
