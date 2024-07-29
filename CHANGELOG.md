@@ -1,5 +1,9 @@
 # Changelog
 
+#### v0.9.0.1E
+
+ * Update: SDK 34, Gradle 8.2.1->8.7 Gradle Plugin 8.0.2->8.5.0, media 1.6.0->1.7.0, recyclerview 1.3.0->1.3.2, material: 1.9.0->1.12.0, espresso-core 3.5.1->3.6.1, desugar_jdk_llibs 2.0.3->2.0.4, lifecycle-version 2.6.1->2.8.4
+
 #### v0.9.0.1D
 
  * Update: SDK 33, Gradle 7.5->8.2.1 Gradle Plugin 7.2.1->8.0.2, appcompat 1.4.2->1.6.1, recyclerview 1.2.1->1.3.0, material: 1.6.1->1.9.0, espresso-core 3.4.0->3.5.1, desugar_jdk_llibs 1.1.5->2.0.3 lifecycle-version 2.5.0->2.6.1
