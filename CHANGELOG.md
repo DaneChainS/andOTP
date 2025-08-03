@@ -1,5 +1,10 @@
 # Changelog
 
+#### v0.9.0.1F
+
+ * Update: SDK 36, Gradle 8.7->8.13, Gradle Plugin 8.5.0->8.11.1, libraries updated
+  * Thumbnails: Add Meta, Spaceship, Arbeitsagentur
+
 #### v0.9.0.1E
 
  * Update: SDK 34, Gradle 8.2.1->8.7 Gradle Plugin 8.0.2->8.5.0, media 1.6.0->1.7.0, recyclerview 1.3.0->1.3.2, material: 1.9.0->1.12.0, espresso-core 3.5.1->3.6.1, desugar_jdk_llibs 2.0.3->2.0.4, lifecycle-version 2.6.1->2.8.4
