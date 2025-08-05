@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 36
+    compileSdkVersion 35
     buildToolsVersion '36.0.0'
 
     defaultConfig {
         applicationId "com.andotp.weaotp"
         minSdkVersion 22
-        targetSdkVersion 36
+        targetSdkVersion 35
         versionCode 58
         versionName "0.9.0.1F"
         vectorDrawables.useSupportLibrary = true
