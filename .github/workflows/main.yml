@@ -2,9 +2,9 @@ name: Build Android APK
 
 on:
   push:
-    branches: [ main ]
+    branches: [ WearOSmaster ]
   pull_request:
-    branches: [ main ]
+    branches: [ WearOSmaster ]
 
 jobs:
   build:
