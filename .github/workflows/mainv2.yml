@@ -1,0 +1,63 @@
+name: Build Android APK v2 sign
+
+on:
+  push:
+    branches: [ WearOSmaster ]
+  pull_request:
+    branches: [ WearOSmaster ]
+
+jobs:
+  build:
+    name: Build APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Gradle cache
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build debug APK
+        run: ./gradlew assembleDebug
+      
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: WandOTP-APK
+          path: app/build/outputs/apk/weaotp/debug/app-weaotp-debug.apk
+
+      - name: Decode keystore
+        run: echo "${{ secrets.ANDROID_KEYSTORE }}" | base64 -d > my-release-key.jks
+
+      - name: Build release APK
+        run: ./gradlew assembleRelease
+
+      - name: Debug output 1
+        run: ls && ls -a app && ls -a app/build && ls -a app/build/outputs && ls -a app/build/outputs/apk && ls -al app/build/outputs/apk/weaotp && ls -a app/build/outputs/apk/weaotp/debug && ls -al app/build/outputs/apk/weaotp/release
+
+      - name: Sign app APK v2
+        uses: ilharp/sign-android-release@v2
+        id: sign_app
+        with:
+          releaseDir: app/build/outputs/apk/release
+          signingKey: ${{ secrets.ANDROID_KEYSTORE }}
+          keyAlias: ${{ secrets.KEY_ALIAS }}
+          keyStorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
+          buildToolsVersion: 36.0.0
+      
+      - name: Verify signature
+        run: jarsigner -verify -verbose -certs app/build/outputs/apk/weaotp/release/app-weaotp-release-unsigned.apk
+
+      - name: Upload Signed APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Wandotp-Signed-APK
+          path: ${{steps.sign_app.outputs.signedFile}}
