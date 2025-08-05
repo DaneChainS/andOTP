@@ -1,4 +1,4 @@
-#  andOTP -  Android OTP Authenticator
+#  andOTP -  Android OTP Authenticator (test)
 
 [![Build Status](https://travis-ci.org/andOTP/andOTP.svg?branch=master)](https://travis-ci.org/andOTP/andOTP)
 [![Current release](https://img.shields.io/github/release/andOTP/andOTP/all.svg)](https://github.com/andOTP/andOTP/releases/download/v0.9.0.1/andOTP_v0.9.0.1.apk)
