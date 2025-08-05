@@ -1,0 +1,63 @@
+name: Build test Android APK
+
+on:
+  push:
+    branches: [ testfdroid ]
+  pull_request:
+    branches: [ testfdroid ]
+
+jobs:
+  build:
+    name: Build APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Gradle cache
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build debug APK
+        run: ./gradlew assembleDebug
+      
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: WandOTP-APK
+          path: app/build/outputs/apk/weaotp/debug/app-weaotp-debug.apk
+
+      - name: Decode keystore
+        run: echo "${{ secrets.ANDROID_KEYSTORE }}" | base64 -d > my-release-key.jks
+
+      - name: Build release APK
+        run: ./gradlew assembleRelease
+
+      - name: Debug output 1
+        run: ls && ls -a app && ls -a app/build && ls -a app/build/outputs && ls -a app/build/outputs/apk && ls -al app/build/outputs/apk/weaotp && ls -a app/build/outputs/apk/weaotp/debug && ls -al app/build/outputs/apk/weaotp/release
+
+      - name: Sign APK
+        run: |
+          jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 \
+            -keystore my-release-key.jks -storepass ${{ secrets.KEYSTORE_PASSWORD }} \
+            -keypass ${{ secrets.KEY_PASSWORD }} \
+            app/build/outputs/apk/weaotp/release/app-weaotp-release-unsigned.apk ${{ secrets.KEY_ALIAS }}
+      - name: Verify signature
+        run: jarsigner -verify -verbose -certs app/build/outputs/apk/weaotp/release/app-weaotp-release-unsigned.apk
+
+      - name: Align APK
+        run: |
+          $ANDROID_HOME/build-tools/36.0.0/zipalign -v 4 \
+            app/build/outputs/apk/weaotp/release/app-weaotp-release-unsigned.apk \
+            app/build/outputs/apk/weaotp/release/app-weaotp-release.apk
+      - name: Upload Signed APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Wandotp-Signed-APK
+          path: app/build/outputs/apk/weaotp/release/app-weaotp-release.apk
