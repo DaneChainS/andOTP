@@ -2,7 +2,7 @@
 
 #### v0.9.0.1F
 
- * Update: SDK 36, Gradle 8.7->8.13, Gradle Plugin 8.5.0->8.11.1, libraries updated
+ * Update: SDK 36, Gradle 8.7->8.14.3, Gradle Plugin 8.5.0->8.11.1, libraries updated
   * Thumbnails: Add Meta, Spaceship, Arbeitsagentur
 
 #### v0.9.0.1E
