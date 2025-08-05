@@ -26,6 +26,7 @@ jobs:
 
       - name: Build debug APK
         run: ./gradlew assembleDebug
+        run: uname -a && env
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
