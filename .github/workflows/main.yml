@@ -27,20 +27,20 @@ jobs:
       - name: Build debug APK
         run: ./gradlew assembleDebug
       
-      - name: Debug output 1
-        run: ls && ls -a app && ls -a app/build && ls -a app/build/outputs && ls -a app/build/outputs/apk && ls -al app/build/outputs/apk/weaotp && ls -a app/build/outputs/apk/weaotp/debug && ls -al app/build/outputs/apk/debug
-
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: WandOTP-APK
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: app/build/outputs/apk/weaotp/debug/app-debug.apk
 
       - name: Decode keystore
         run: echo "${{ secrets.ANDROID_KEYSTORE }}" | base64 -d > my-release-key.jks
 
       - name: Build release APK
         run: ./gradlew assembleRelease
+
+      - name: Debug output 1
+        run: ls && ls -a app && ls -a app/build && ls -a app/build/outputs && ls -a app/build/outputs/apk && ls -al app/build/outputs/apk/weaotp && ls -a app/build/outputs/apk/weaotp/debug && ls -al app/build/outputs/apk/weaotp/release
 
       - name: Sign APK
         run: |
