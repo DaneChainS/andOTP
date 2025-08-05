@@ -39,6 +39,11 @@ android {
     }
     flavorDimensions 'market'
     productFlavors {
+        weaotp {
+            getIsDefault().set(true)
+            dimension 'market'
+            versionNameSuffix '-weaotp'
+        }
         fdroid {
             dimension = 'market'
         }
@@ -49,10 +54,6 @@ android {
         galaxy {
             dimension 'market'
             versionNameSuffix '-galaxy'
-        }
-        weaotp {
-            dimension 'market'
-            versionNameSuffix '-weaotp'
         }
     }
     compileOptions {
