@@ -44,7 +44,7 @@ android {
             dimension 'market'
             versionNameSuffix '-weaotp'
         }
-        fdroid {
+    /*    fdroid {
             dimension = 'market'
         }
         play {
@@ -54,7 +54,7 @@ android {
         galaxy {
             dimension 'market'
             versionNameSuffix '-galaxy'
-        }
+        }*/
     }
     compileOptions {
         // Flag to enable support for the new language APIs
